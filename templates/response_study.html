@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cs50 Final Project</title>
+    <link rel="stylesheet" href="/static/styles.css"
+</head>
+<body>
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/logout">Logout</a>
+        <a href="/study">Study Planner</a>
+    </nav>
+    <hr>
+    
+<h2>Study Planner</h2>
+
+<form action="/study" method="post">
+    <input name="title" placeholder="Task title" required>
+    <input name="description" placeholder="Description (optional)">
+    <input type="date" name="due_date" required>
+    <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+
+    <ul>
+    
+        <li>
+            
+        <strong>AutoTask</strong>
+    
+
+    
+        <br>
+        automated
+    
+
+    <br>
+    DUE: 2026-01-20
+
+    <!-- BUTTONS MUST BE OUTSIDE THE ABOVE IF -->
+    <a href="/toggle/5">
+        
+            Mark as Complete
+        
+    </a>
+
+    |
+    <a href="/delete/5">Delete</a>
+</li>
+    
+    </ul>
+
+
+
+</body>
+</html>

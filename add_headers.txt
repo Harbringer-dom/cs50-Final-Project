@@ -1,0 +1,9 @@
+HTTP/1.1 302 FOUND
+Server: Werkzeug/3.1.4 Python/3.14.2
+Date: Wed, 14 Jan 2026 10:13:21 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 199
+Location: /study
+Vary: Cookie
+Connection: close
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StudySpend - Expense & Study Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/study">Study Planner</a>
+        <a href="/expenses">Expense Tracker</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    
+    <!-- Flash Messages Container -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash flash-{{ category }}" role="alert">
+                    {{ message }}
+                    <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="container">
+        {% block body %}
+        {% endblock%}
+    </div>
+</body>
+</html>

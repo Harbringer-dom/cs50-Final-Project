@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Expense Tracker</h2>
+
+<div class="dashboard-cards" style="margin-bottom: 20px;">
+    <div class="card">
+        <h3>Total Spent</h3>
+        <p>₹{{ total }}</p>
+    </div>
+</div>
+
+<form action="/expenses" method="post" style="margin-bottom: 30px;">
+    <h3 style="margin-top: 0; font-size: 18px;">Add New Expense</h3>
+    
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">Select a category...</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Travel">🚗 Travel</option>
+            <option value="Study">📚 Study</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Entertainment">🎬 Entertainment</option>
+            <option value="Other">📌 Other</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="amount">Amount (₹):</label>
+        <input type="number" id="amount" name="amount" step="0.01" placeholder="0.00" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="note">Note (optional):</label>
+        <input type="text" id="note" name="note" placeholder="Add a note...">
+    </div>
+    
+    <button type="submit">Add Expense</button>
+</form>
+
+<hr>
+
+<h3>Filter by Category</h3>
+<div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+    <a href="/expenses" style="padding: 8px 15px; background: var(--primary-color); color: white; border-radius: 20px; text-decoration: none; font-size: 14px;">All</a>
+    <a href="/expenses?category=Food" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">🍔 Food</a>
+    <a href="/expenses?category=Travel" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">🚗 Travel</a>
+    <a href="/expenses?category=Study" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">📚 Study</a>
+    <a href="/expenses?category=Shopping" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">🛍️ Shopping</a>
+    <a href="/expenses?category=Entertainment" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">🎬 Entertainment</a>
+    <a href="/expenses?category=Other" style="padding: 8px 15px; background: #e0e0e0; border-radius: 20px; text-decoration: none; font-size: 14px;">📌 Other</a>
+</div>
+
+<hr>
+
+<h3>Expenses List</h3>
+{% if expenses %}
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount (₹)</th>
+            <th>Note</th>
+            <th>Action</th>
+        </tr>
+        {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.date }}</td>
+                <td><strong>{{ expense.category }}</strong></td>
+                <td>₹{{ "%.2f"|format(expense.amount) }}</td>
+                <td>{{ expense.note if expense.note else "—" }}</td>
+                <td>
+                    <a href="/delete_expense/{{ expense.id }}" onclick="return confirm('Delete this expense?')" style="color: var(--danger-color); text-decoration: none; font-weight: 500;">🗑️ Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p style="background: #f0f0f0; padding: 20px; border-radius: 4px; text-align: center; color: #666;">
+        💰 No expenses recorded yet. Create your first expense!
+    </p>
+{% endif %}
+{% endblock %}

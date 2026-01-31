@@ -1,0 +1,49 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database
+database.db
+*.db
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Flask Debug
+flask_session/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Distribution
+dist/
+build/
+*.egg-info/
