@@ -10,7 +10,7 @@
    git init
    git add .
    git commit -m "StudySpend - CS50 Final Project"
-   git remote add origin https://github.com/YourUsername/StudySpend.git
+   git remote add origin https://github.com/Harbringer-dom/cs50-Final-Project.git
    git push -u origin main
    ```
 
