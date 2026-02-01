@@ -27,7 +27,6 @@ Hey! This is my CS50 Final Project - a web app I built using Flask to help stude
 - Register with a username and password
 - Login securely (passwords are hashed)
 - Each person only sees their own data
-- Each person only sees their own data
 
 ### Nice Touches
 - Shows success/error messages for everything you do
@@ -44,6 +43,8 @@ This was my first time building a full web app! I learned:
 - **Werkzeug**: For secure password handling
 - **HTML/CSS**: For the pages and styling
 - **Jinja2**: Flask's template system
+- **ChatGPT**: I got help from ChatGPT for debugging and learning concepts
+- **GitHub Copilot**: I used this to get explanations and understand changes in the project, especially for error handling
 
 ## Database Design
 
