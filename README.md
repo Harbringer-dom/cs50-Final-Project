@@ -1,54 +1,55 @@
 # StudySpend 📚💰
 
-A Flask-based web application for managing study tasks and personal expenses. Track your spending by category while organizing your study schedule efficiently.
+Hey! This is my CS50 Final Project - a web app I built using Flask to help students like me track expenses and manage study tasks. It's been a great learning experience working with Python, databases, and web development!
 
-## Features
+## What It Does
 
-### 📊 Dashboard
-- **Monthly Expense Overview**: View your total spending for the current month
-- **Study Progress**: Track total tasks, completed tasks, and pending tasks
-- **Category Breakdown**: See expense distribution across categories
-- **Quick Summary**: At-a-glance insights into your spending and productivity
+### Dashboard
+- Shows your total spending this month
+- Tracks how many study tasks you have and how many are done
+- Breaks down expenses by category
+- Quick overview of your money and study progress
 
-### 💸 Expense Tracker
-- **Add Expenses**: Record expenses with category, amount, date, and notes
-- **Category Filtering**: Filter expenses by Food, Travel, Study, Shopping, Entertainment, or Other
-- **Track Totals**: View total spending overall or by category
-- **Delete Expenses**: Remove expenses with confirmation
-- **Date-based Sorting**: Expenses sorted by date for easy navigation
+### Expense Tracker
+- Add expenses with categories like Food, Travel, Study, etc.
+- Filter to see spending in specific categories
+- See total amounts spent
+- Delete expenses if you made a mistake
+- Everything sorted by date
 
-### 📚 Study Planner
-- **Create Study Tasks**: Add tasks with title, description, and due date
-- **Task Status**: Mark tasks as completed or pending
-- **Priority Sorting**: Tasks automatically sorted by completion status and due date
-- **Task Management**: Delete completed or unnecessary tasks
-- **Task Details**: Include descriptions and track due dates
+### Study Planner
+- Create study tasks with titles, descriptions, and due dates
+- Mark tasks as completed
+- Tasks sorted by what's done and what's due soon
+- Delete tasks when you're done with them
 
-### 🔐 User Authentication
-- **Register**: Create a new account with username and password
-- **Login**: Secure login with password hashing (Werkzeug)
-- **Logout**: Session management and secure logout
-- **User Isolation**: Each user sees only their own data
+### User Accounts
+- Register with a username and password
+- Login securely (passwords are hashed)
+- Each person only sees their own data
+- Each person only sees their own data
 
-### 💬 User Experience
-- **Flash Messages**: Real-time feedback for all actions (success/error)
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Form Validation**: Client and server-side validation with helpful error messages
-- **Empty States**: Friendly messages when no data exists
-- **Smooth Animations**: Visual feedback for messages and interactions
+### Nice Touches
+- Shows success/error messages for everything you do
+- Works on phone, tablet, and computer
+- Checks your inputs and shows helpful messages
+- Friendly messages when you have no data yet
+- Smooth animations for a nice feel
 
-## Technology Stack
+## What I Used
 
-- **Backend**: Flask (Python web framework)
-- **Database**: SQLite3
-- **Authentication**: Werkzeug password hashing
-- **Frontend**: HTML5, Jinja2 templates
-- **Styling**: Custom CSS with responsive grid layout
-- **Session Management**: Flask sessions with secure secret key
+This was my first time building a full web app! I learned:
+- **Flask**: Python framework for web apps
+- **SQLite**: Simple database that stores data in a file
+- **Werkzeug**: For secure password handling
+- **HTML/CSS**: For the pages and styling
+- **Jinja2**: Flask's template system
 
-## Database Schema
+## Database Design
 
-### Users Table
+I kept it simple with three tables:
+
+### Users
 ```sql
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -57,7 +58,7 @@ CREATE TABLE users (
 );
 ```
 
-### Study Tasks Table
+### Study Tasks
 ```sql
 CREATE TABLE study_tasks2 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,11 +67,9 @@ CREATE TABLE study_tasks2 (
     description TEXT,
     due_date DATE,
     completed INTEGER DEFAULT 0,
-    FOREIGN KEY (user_id) REFERENCES users(id)
 );
-```
 
-### Expenses Table
+### Expenses
 ```sql
 CREATE TABLE expenses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -83,140 +82,114 @@ CREATE TABLE expenses (
 );
 ```
 
-## Installation & Setup
+## How to Run It
 
-### Prerequisites
-- Python 3.7 or higher
-- pip (Python package manager)
+You'll need Python 3.7+ installed.
 
-### Steps
+### Quick Setup
+1. Download or clone this project
+2. Open terminal in the project folder
+3. Create a virtual environment (optional but good practice):
+   ```
+   python -m venv .venv
+   .\.venv\Scripts\activate  # Windows
+   ```
+4. Install the requirements:
+   ```
+   pip install -r requirements.txt
+   ```
+5. Run the app:
+   ```
+   python app.py
+   ```
+6. Open http://localhost:5000 in your browser
 
-1. **Clone or Download the Project**
-```bash
-cd "cs50 Finall Project"
-```
-
-2. **Create a Virtual Environment**
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1    # PowerShell
-```
-
-3. **Install Dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Run the Application**
-```bash
-python app.py
-```
-
-5. **Access the Application**
-Open your browser and go to: `http://localhost:5000`
-
-## File Structure
+## Project Files
 
 ```
 cs50 Finall Project/
-├── app.py                 # Main Flask application
-├── database.db           # SQLite database file
-├── requirements.txt      # Python dependencies
-├── static/
-│   └── styles.css       # Main stylesheet
-└── templates/
-    ├── layout.html      # Base template with navigation
-    ├── dashboard.html   # Dashboard/home page
-    ├── login.html       # Login page
-    ├── register.html    # Registration page
-    ├── study.html       # Study planner page
-    └── expenses.html    # Expense tracker page
+├── app.py              # The main app file
+├── requirements.txt    # List of packages needed
+├── static/styles.css   # CSS for styling
+└── templates/          # HTML templates
+    ├── layout.html     # Base page with nav
+    ├── dashboard.html  # Home page
+    ├── login.html      # Login form
+    ├── register.html   # Signup form
+    ├── study.html      # Study tasks page
+    └── expenses.html   # Expense page
 ```
 
-## Usage Guide
+## How to Use
 
-### Registration & Login
-1. Click "Register" to create a new account
-2. Enter a username and password
-3. Click "Login" to access your dashboard
+### Getting Started
+1. Register a new account with username/password
+2. Login to see your dashboard
 
-### Managing Expenses
-1. Go to **Expense Tracker**
-2. Select a category (Food, Travel, Study, etc.)
-3. Enter the amount and date
-4. Optionally add a note
-5. Click "Add Expense"
-6. Filter by category using the category buttons
-7. Click "Delete" to remove an expense
+### Adding Expenses
+- Go to Expense Tracker
+- Pick a category (Food, Travel, etc.)
+- Enter amount, date, and optional note
+- Click Add Expense
+- Use category buttons to filter what you see
+- Delete button removes expenses
 
-### Managing Study Tasks
-1. Go to **Study Planner**
-2. Enter task title and due date
-3. Optionally add a description
-4. Click "Add Task"
-5. Click "Mark Done" to complete a task
-6. Click "Delete" to remove a task
+### Study Tasks
+- Go to Study Planner
+- Add tasks with title, description, due date
+- Mark as done when finished
+- Delete when no longer needed
 
-### Viewing Dashboard
-- Dashboard shows real-time statistics
-- Monthly expense total
-- Study task progress
-- Category-wise expense breakdown
-- Quick summary of your activities
+### Dashboard
+- Shows your spending this month
+- Counts your study tasks
+- Breaks down expenses by category
 
-## Key Routes
+## Routes in the App
 
 | Route | Method | Purpose |
 |-------|--------|---------|
 | `/` | GET | Dashboard |
-| `/register` | GET, POST | User registration |
-| `/login` | GET, POST | User login |
-| `/logout` | GET | User logout |
-| `/study` | GET, POST | Study planner |
-| `/delete_task/<id>` | GET | Delete study task |
-| `/toggle_task/<id>` | GET | Mark task complete/pending |
-| `/expenses` | GET, POST | Expense tracker |
+| `/register` | GET, POST | Sign up |
+| `/login` | GET, POST | Sign in |
+| `/logout` | GET | Sign out |
+| `/study` | GET, POST | Study tasks |
+| `/delete_task/<id>` | GET | Delete task |
+| `/toggle_task/<id>` | GET | Mark task done |
+| `/expenses` | GET, POST | Expenses |
 | `/delete_expense/<id>` | GET | Delete expense |
 
-## Validation & Security
+## Security & Checks
 
-- **Password Security**: Passwords hashed using Werkzeug
-- **Session Management**: User authentication via Flask sessions
-- **User Isolation**: SQL queries filter by user_id
-- **Input Validation**: 
-  - Amount must be positive number
-  - Required fields validated
-  - Category selection from dropdown
-- **SQL Injection Prevention**: Parameterized queries with `?` placeholders
+- Passwords are securely hashed
+- Users can only see their own data
+- Forms check for required fields and valid inputs
+- Uses safe SQL queries to prevent issues
 
-## Error Handling
+## Error Messages
 
-The application provides user-friendly error messages:
-- ✅ Success messages for completed actions
-- ❌ Error messages for invalid inputs
-- 💬 Validation feedback for required fields
-- 🔔 Flash messages dismiss automatically
+- Green messages for success
+- Red messages for errors
+- Helpful hints for what went wrong
 
-## Browser Compatibility
+## What I Learned
 
-- Chrome/Edge (recommended)
-- Firefox
-- Safari
-- Mobile browsers
+This was my first big Flask project! I learned a lot about:
+- Building web apps with Python
+- Working with databases
+- User authentication
+- Making responsive designs
+- Deploying to the web
 
-## Future Enhancements
+## Future Ideas
 
-Potential features for future versions:
-- [ ] Data export (CSV/PDF)
-- [ ] Spending charts and graphs
-- [ ] Monthly/yearly reports
-- [ ] Budget alerts
-- [ ] Recurring expenses
-- [ ] Email notifications
-- [ ] Dark mode
-- [ ] Multi-currency support
+If I had more time, I might add:
+- Charts to visualize spending
+- Export data to CSV
+- Budget goals and alerts
+- Email reminders for tasks
 
-## Troubleshooting
+## Having Issues?
 
 ### Database Issues
 If you encounter database errors:
@@ -225,66 +198,49 @@ If you encounter database errors:
 3. Create a new database by registering
 
 ### Port Already in Use
-If port 5000 is already in use:
-1. Change port in `app.py`: `app.run(debug=True, port=5001)`
-2. Access application at `http://localhost:5001`
+If port 5000 is busy:
+1. Edit `app.py` and change `port=5000` to `port=5001`
+2. Go to `http://localhost:5001`
 
-### Virtual Environment Issues
+### Virtual Environment Problems
 ```bash
-# Deactivate current environment
+# Exit current env
 deactivate
 
-# Remove .venv folder
+# Delete and remake
 rm -r .venv
-
-# Recreate
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-## License
+## About This Project
 
-This project is created as a CS50 final project.
+This was my CS50 final project. I learned a ton about web development!
 
-## Support
+**Made by**: Chitvan Suri  
+**Date**: January 2026  
+**Course**: CS50
 
-For issues or questions, refer to the code comments or review the Flask documentation at https://flask.palletsprojects.com/
+## 🚀 Want to Share It Online?
 
----
+Check out [DEPLOYMENT.md](DEPLOYMENT.md) for easy ways to put it on the internet:
+- Render (free option)
+- PythonAnywhere (super easy)
+- Local network (for friends)
 
-**Version**: 1.0  
-**Last Updated**: January 23, 2026  
-**Developer**: Chitvan Suri  
-**CS50 Final Project**: StudySpend
+## 📂 Get the Code
 
----
-
-## 🚀 Deployment
-
-Ready to share your app online? See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step instructions to deploy on:
-- **Render** (Recommended - Free tier available)
-- **PythonAnywhere** (Easy setup)
-- **Local Network** (For testing with friends on same WiFi)
-
-## 📂 GitHub Repository
-
-This project is available on GitHub. To get the code:
+The code is on GitHub. To run it yourself:
 ```bash
-git clone https://github.com/YourUsername/StudySpend.git
-cd StudySpend
+git clone https://github.com/Harbringer-dom/cs50-Final-Project.git
+cd cs50-Final-Project
 python -m venv .venv
-.venv\Scripts\Activate.ps1  #windows
-source .venv/bin/activate   # Mac/Linux
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python app.py
 ```
 
-## ✅ What Makes This Project Great
+## Why I Built This
 
-- **Complete Full-Stack App**: Backend (Python/Flask) + Frontend (HTML/CSS/JS)
-- **Database Design**: Proper schema with user isolation and relationships
-- **Security**: Password hashing, parameterized queries, session management
-- **UX/UI**: Responsive design, flash messages, form validation
-- **Production Ready**: Can be deployed online and shared with anyone
-- **Well Documented**: README, DEPLOYMENT guide, inline code comments
+I wanted to make something useful that combines two things students deal with: money and studying. It was challenging but fun to learn Flask and databases!
