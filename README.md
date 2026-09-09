@@ -219,7 +219,7 @@ pip install -r requirements.txt
 
 This was my CS50 final project. I learned a ton about web development!
 
-**Made by**: Chitvan Suri  
+**Made by**: Hitansh Chandhok  
 **Date**: January 2026  
 **Course**: CS50
 
